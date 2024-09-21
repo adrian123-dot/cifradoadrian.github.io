@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/flowers.png" type="image/x-icon">
+    <title>FLORES</title>
+</head>
+<body>
+    <div class="greetings">
+        <span>H</span>
+        <span>O</span>
+        <span>L</span>
+        <span>A</span>
+    </div>
+    <div class="description">
+        <span>Tengo un regalo especial para ti!!</span>
+    </div>
+
+    <!-- Audio player -->
+    <audio id="audioPlayer" src="Floricienta.mp3" preload="auto"></audio>
+
+    <!-- Button to trigger audio and redirect in a new tab -->
+    <div class="button">
+        <button id="playButton">
+            Haga Clic
+        </button>
+    </div>
+
+    <!-- JavaScript to play audio and redirect in a new tab -->
+    <script>
+        document.getElementById('playButton').addEventListener('click', function() {
+            var audio = document.getElementById('audioPlayer');
+            audio.play().then(function() {
+                console.log('Reproduciendo audio...');
+                // Abrir la nueva página en una pestaña diferente después de 6 segundos
+                setTimeout(function() {
+                    window.open('FLORES.html', '_blank');
+                }, 4000); // Redirigir después de 6 segundos
+            }).catch(function(error) {
+                console.error('Error al reproducir el audio:', error);
+                // Redirigir si ocurre un error con la reproducción
+                setTimeout(function() {
+                    window.open('FLORES.html', '_blank');
+                }, 1000);
+            });
+        });
+    </script>
+
+</body>
+</html>
+
